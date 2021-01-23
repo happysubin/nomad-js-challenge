@@ -10,7 +10,7 @@ let pen = [];
 function deleteList(event) {
 	const btn = event.target;
 	const li = btn.parentNode;
-	const text = li.childNodes[1].innerText;
+	const text = li.childNodes[2].innerText;
 	const className = li.parentNode.className;
 	const obj = {
 		className: className,
@@ -20,7 +20,6 @@ function deleteList(event) {
 	if (className == 'pending-list') {
 		pendingList.removeChild(li);
 		const cleanPen = pen.filter(function (item) {
-			console.log(typeof item.id, typeof li.id);
 			return item.id !== parseInt(li.id);
 		});
 		pen = cleanPen;
@@ -29,7 +28,6 @@ function deleteList(event) {
 	} else {
 		finishList.removeChild(li);
 		const cleanFin = fin.filter(function (item) {
-			console.log(typeof item.id, typeof li.id);
 			return item.id !== parseInt(li.id);
 		});
 		fin = cleanFin;
@@ -63,9 +61,9 @@ function paintFinish(text) {
 	span.innerText = text;
 	movBtn.innerText = '⏪';
 	delBtn.innerText = '❌';
+	li.appendChild(movBtn);
 	li.appendChild(delBtn);
 	li.appendChild(span);
-	li.appendChild(movBtn);
 	finishList.appendChild(li);
 	const obj = {
 		id: id,
@@ -88,9 +86,9 @@ function paintPending(text) {
 	span.innerText = text;
 	movBtn.innerText = '✅';
 	delBtn.innerText = '❌';
+	li.appendChild(movBtn);
 	li.appendChild(delBtn);
 	li.appendChild(span);
-	li.appendChild(movBtn);
 	pendingList.appendChild(li);
 	const obj = {
 		id: id,
