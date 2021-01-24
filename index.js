@@ -1,5 +1,5 @@
 const clock = document.querySelector('.clock');
-const days = ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'];
+const days = ['Sun', 'Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat'];
 const nameForm = document.querySelector('.name');
 const nameInput = nameForm.querySelector('input');
 const nameTitle = document.querySelector('.nameTitle');
@@ -13,7 +13,7 @@ function timeGet() {
 	const hours = date.getHours(); //14시로 나옴
 	const minutes = date.getMinutes();
 	const seconds = date.getSeconds();
-	clock.innerText = `${year} : ${month + 1} : ${nowDate} : ${days[day - 1]} : ${hours < 10 ? `0${hours}` : hours} : ${
+	clock.innerText = `${year} : ${month + 1} : ${nowDate} : ${days[day]} : ${hours < 10 ? `0${hours}` : hours} : ${
 		minutes < 10 ? `0${minutes}` : minutes
 	} : ${seconds < 10 ? `0${seconds}` : seconds}`;
 }
